@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+{% extends 'homepage.html' %}
+{% block content %}
+    <div class="books-grid">
+        {% for book in books %}
+        <div class="book-container">
+            <h1>Title: {{ book.title }}</h1>
+            {% if book.cover %}
+                <img src="{{ book.cover.url }}" alt="Cover Image">
+            {% else %}
+                <p>No cover image available</p>
+            {% endif %}
+            <h2>Author: {{ book.author }}</h2>
+            <p>Year: {{ book.year }}</p>
+            <p>Language: {{ book.Language }}</p>
+            <p>Summary: {{book.Summary}}</p>
+
+            <a href="{%url 'edit' book.id %}">edit</a> <a href="{%url 'delete' book.id %}">delete</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+</body>
+</html>

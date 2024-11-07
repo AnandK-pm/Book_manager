@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Library</h1>
+
+    <a href="{% url 'display'%}">Show Books</a> <!--display is the name given to the path url in url.py-->
+    <a href="{% url 'addbook' %}">Add a Book</a>
+    {%block content %} 
+    <!-- for inheritance -->
+    {%endblock%}
+</body>
+</html>
